@@ -3,3 +3,4 @@
 *.rhistory filter=lfs diff=lfs merge=lfs -text
 *.dcm filter=lfs diff=lfs merge=lfs -text
 *.gz filter=lfs diff=lfs merge=lfs -text
+*.md filter=lfs diff=lfs merge=lfs -text
