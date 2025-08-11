@@ -1,4 +1,4 @@
-# 🧠 R Neurohacking
+# 🔬 R Neurohacking
 ## 🎯 Objective <br>
 This project e <p>
 ## 🛠️ Tools <br>
