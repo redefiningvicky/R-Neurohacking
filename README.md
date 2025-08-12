@@ -109,9 +109,6 @@ dev.off()
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_04/NIfTI_T1_Slice_11_Histogram.png" width="600" />
 
 ```
-#read without reorientation
-nii_T1 <- readNIfTI(fname, reorient = FALSE)
-
 #plot area
 par(mfrow=c(1,2))
 o<-par(mar=c(4,4,4,2))
