@@ -633,7 +633,7 @@ for(slice_index in 1:num_slices) {
   smoothed_slice <- smooth_nifti@.Data[, , slice_index]
 ```
 ### NIfTI nii T2 Slice 12 Transformed
-<img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/9a36451e89327cfd0ad3daa0e51584349552c16b/R_Neurohacking_Results_Part_12/NIfTI_nii_T2_Slice_11_Transformed.png"400" />
+<img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/9a36451e89327cfd0ad3daa0e51584349552c16b/R_Neurohacking_Results_Part_12/NIfTI_nii_T2_Slice_11_Transformed.png" width="400" />
 
 ```
 #calculate start and end indices for transformed slice vector
