@@ -7,6 +7,7 @@ This project uses the R programming language and its neuroimaging packages to ma
 Of the MRI slices numbered 1 to 22, only slice 11 is shown here as representative examples. Sample R code snippets are also provided to demonstrate how to generate the images.
 ### DICOM FLAIR Slice 11 Grayscale
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/951f629a1bbc2550b4d2b12ea8a01228f2862280/R_Neurohacking_Results_Part_01/DICOM_FLAIR_Slice_11_Grayscale.png" width="400" />
+
 ```
 #transpose data using t(): faces "up" versus "right", grayscale
 d11 <- dim(t(slice11$img[[1]])) 
