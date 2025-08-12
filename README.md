@@ -38,6 +38,7 @@ hist(slice11$img[[1]][,],
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_02/DICOM_T1_Slice_11.png" width="400" />
 
 ```
+#plot NIfT1 slice 11
 image(1:d[1], 1:d[2], nii_T1[,,11],
   col = gray(0:64/64),
   xlab = "",
@@ -48,6 +49,7 @@ image(1:d[1], 1:d[2], nii_T1[,,11],
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_03/DICOM_T2_Slice_11.png" width="400" />
 
 ```
+#plot NIfT2 slice 11
 image(1:d[1], 1:d[2], nii_T2[,,11],
   col = gray(0:64/64),
   xlab = "",
@@ -94,55 +96,151 @@ dev.off()
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_04/NIfTI_nii_T1_Slice_11_Orthographic.png" width="400" />
 
 ```
-enter
+#read without reorientation
+nii_T1 <- readNIfTI(fname, reorient = FALSE)
+
+#slice orthographic all planes of coronal, sagittal, and axial for slice 11, text
+png("NIfTI_nii_T1_Slice_11_Orthographic.png", width = 800, height = 800)
+orthographic(nii_T1, xyz = c(200, 220, 11))  
+mtext("NIfTI nii T1 Slice 11 Orthographic", side = 1, line = 1, adj = 1, cex = 1, col = "white")
+dev.off()
 ```
 ### NIfTI nii T1 Slice 11 Histogram
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_04/NIfTI_T1_Slice_11_Histogram.png" width="600" />
 
 ```
-enter
+#read without reorientation
+nii_T1 <- readNIfTI(fname, reorient = FALSE)
+
+#plot area
+par(mfrow=c(1,2))
+o<-par(mar=c(4,4,4,2))
+
+#slice selection for slice 11
+slice_data_11 <- nii_T1[,,11]
+
+#histogram with density and intensities for all in slice 11
+hist(slice_data_11, breaks = 75, prob = TRUE, xlab = "T1 Intensities", col = rgb(0,0,1,0.5), main = "NIfTI nii T1 Slice 11 Histogram", cex.main = 1)
+
+#histogram with density and intensities for < 20 in slice 11
+hist(slice_data_11[slice_data_11 > 20], breaks = 75, prob = TRUE, xlab = "T1 Intensities > 20", col = rgb(0,0,1,0.5), main = "NIfTI nii T1 Slice 11 Histogram (>20)", cex.main = 1)
+
+dev.off()
 ```
 ### NIfTI nii T2 Slice 11 Grayscale
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_05/NIfTI_nii_T2_Slice_11_Grayscale.png" width="400" />
 
 ```
-enter
+#read without reorientation
+nii_T2 <- readNIfTI(fname, reorient = FALSE)
+
+#slice using custom x and y axes, grayscale, for slice 11
+png("NIfTI_nii_T2_Slice_11_Grayscale.png", width = 800, height = 800)
+image(1:d[1], 1:d[2], nii_T2[,,11], xlab = "", ylab = "", col = gray(0:64/64), main = "NIfTI nii T2 Slice 11 Grayscale")
+dev.off()
 ```
 ### NIfTI nii T2 Slice 11 Heat
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_05/NIfTI_nii_T2_Slice_11_Heat.png" width="400" />
 
 ```
-enter
+#read without reorientation
+nii_T2 <- readNIfTI(fname, reorient = FALSE)
+
+#slice using custom x and y axes, default colors of heat color orange, for slice 11
+png("NIfTI_nii_T2_Slice_11_Heat.png", width = 800, height = 800)
+image(1:d[1], 1:d[2], nii_T2[,,11], xlab = "", ylab = "", col = heat.colors(12), main = "NIfTI nii T2 Slice 11 Heat")
+dev.off()
 ```
 ### NIfTI nii T2 Slice 11 Oro
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_05/NIfTI_nii_T2_Slice_11_Oro.png" width="400" />
 
 ```
-enter
+#read without reorientation
+nii_T2 <- readNIfTI(fname, reorient = FALSE)
+
+#slice using oro.nifti package for slice 11
+png("NIfTI_nii_T2_Slice_11_Oro.png", width = 800, height = 800)
+image(nii_T2, z=11,plot.type="single")
+dev.off()
 ```
 ### NIfTI nii T2 Slice 11 Orthographic
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_05/NIfTI_nii_T2_Slice_11_Orthographic.png" width="400" />
 
 ```
-enter
+#read without reorientation
+nii_T2 <- readNIfTI(fname, reorient = FALSE)
+
+#slice orthographic all planes of coronal, sagittal, and axial for slice 11, text
+png("NIfTI_nii_T2_Slice_11_Orthographic.png", width = 800, height = 800)
+orthographic(nii_T2, xyz = c(200, 220, 11))  
+mtext("NIfTI nii T2 Slice 11 Orthographic", side = 1, line = 1, adj = 1, cex = 1, col = "white")
+dev.off()
 ```
 ### NIfTI nii T2 Slice 11 Histogram
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_05/NIfTI_T2_Slice_11_Histogram.png" width="600" />
 
 ```
-enter
+#read without reorientation
+nii_T2 <- readNIfTI(fname, reorient = FALSE)
+
+#plot area
+par(mfrow=c(1,2))
+o<-par(mar=c(4,4,4,2))
+
+#slice selection for slice 11
+slice_data_11 <- nii_T2[,,11]
+
+#histogram with density and intensities for all in slice 11
+hist(slice_data_11, breaks = 75, prob = TRUE, xlab = "T2 Intensities", col = rgb(0,0,1,0.5), main = "NIfTI nii T2 Slice 11 Histogram", cex.main = 1)
+
+#histogram with density and intensities for < 20 in slice 11
+hist(slice_data_11[slice_data_11 > 20], breaks = 75, prob = TRUE, xlab = "T2 Intensities > 20", col = rgb(0,0,1,0.5), main = "NIfTI nii T2 Slice 11 Histogram (>20)", cex.main = 1)
+
+dev.off()
 ```
 ### NIfTI nii T1 Slice 11 Oro Overlay
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_06/NIfTI_nii_T1_Slice_11_Oro_Overlay.png" width="400" />
 
 ```
-enter
+#define value between 300 and 400
+is_btw_300_400 <- (nii_T1 >= 300) & (nii_T1 <= 400)
+
+#mask
+nii_T1_mask <- nii_T1
+
+#set value range to NA
+nii_T1_mask[!is_btw_300_400] <- NA
+
+#extract the 3D data array
+mask_array <- nii_T1_mask[]
+
+#slice 11
+arr_11 <- array(NA, dim = dim(as.array(nii_T1_mask)))
+arr_11[,,11] <- as.array(nii_T1_mask)[,,11]
+
+nii_T1_mask_11 <- nii_T1_mask
+nii_T1_mask_11@.Data <- arr_11
+
+png("NIfTI_nii_T1_Slice_11_Oro_Overlay.png", width = 800, height = 800)
+overlay(nii_T1, nii_T1_mask_11, z = 11, plot.type = "single")
+mtext("NIfTI nii T1 Slice 11 Oro Overlay", side = 1, line = 1, adj = 1, cex = 1, col = "white")
+dev.off()
 ```
 ### NIfTI nii T1 Slices 01-22 Oro Overlay Grid
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_06/NIfTI_nii_T1_Slices_01_22_Oro_Overlay_Grid.png" width="400" />
 
 ```
-enter
+#slices 1-22
+arr_all <- array(NA, dim = dim(as.array(nii_T1_mask)))
+arr_all[,,1:22] <- as.array(nii_T1_mask)[,,1:22]
+
+nii_T1_mask_all <- nii_T1_mask
+nii_T1_mask_all@.Data <- arr_all
+
+png("NIfTI_nii_T1_Slices_01_22_Oro_Overlay_Grid.png", width = 800, height = 800)
+overlay(nii_T1, nii_T1_mask_all, z = 1:22, plot.type = "single")
+mtext("NIfTI nii T1 Slices 01-22 Oro Overlay Grid", side = 1, line = 1, adj = 1, cex = 1, col = "white")
+dev.off()
 ```
 ### NIfTI nii T2 Slice 11 Oro Overlay
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_07/NIfTI_nii_T2_Slice_11_Oro_Overlay.png" width="400" />
@@ -186,6 +284,7 @@ enter
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/702a98af6c51c1e48e7630f06a645b45a2dc1c18/R_Neurohacking_Results_Part_10/Kirby21_T1_Orthographic_Original.png" width="400" />
 
 ```
+#view the orthographic
 orthographic(T1)
 ```
 ### Kirby21 T1 Orthographic Masked
