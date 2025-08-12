@@ -9,7 +9,7 @@ Of MRI Slices 1-22, only slice 11 is shown here as an example for the project.
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/951f629a1bbc2550b4d2b12ea8a01228f2862280/R_Neurohacking_Results_Part_01/DICOM_FLAIR_Slice_11_Grayscale.png" width="400" />
 
 ### DICOM FLAIR Slice 11 Histogram
-<img src="https://github.com/redefiningvicky/R-Neurohacking/blob/951f629a1bbc2550b4d2b12ea8a01228f2862280/R_Neurohacking_Results_Part_01/DICOM_FLAIR_Slice_11_Histogram.png" width="500" />
+<img src="https://github.com/redefiningvicky/R-Neurohacking/blob/951f629a1bbc2550b4d2b12ea8a01228f2862280/R_Neurohacking_Results_Part_01/DICOM_FLAIR_Slice_11_Histogram.png" width="400" />
 
 ### DICOM T1 Slice 11 Grayscale
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_02/DICOM_T1_Slice_11.png" width="400" />
