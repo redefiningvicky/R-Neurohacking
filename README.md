@@ -303,9 +303,6 @@ dev.off()
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/702a98af6c51c1e48e7630f06a645b45a2dc1c18/R_Neurohacking_Results_Part_08/NIfTI_nii_T1_Slice_11_Orthographic_Overlay.png" width="400" />
 
 ```
-#read without reorientation
-nii_T1 <- readNIfTI(fname, reorient = FALSE)
-
 #define value between 300 and 400
 is_btw_300_400 <- (nii_T1 >= 300) & (nii_T1 <= 400)
 
@@ -333,13 +330,41 @@ mtext("NIfTI nii T1 Slice 11 Orthographic Overlay", side = 1, line = 1, adj = 1,
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_09/NIfTI_nii_T2_Slice_11_Orthographic.png" width="400" />
 
 ```
-enter
+#read without reorientation
+nii_T2 <- readNIfTI(fname, reorient = FALSE)
+
+#slice orthographic all planes of coronal, sagittal, and axial for slice 11
+png("NIfTI_nii_T2_Slice_11_Orthographic.png", width = 800, height = 800)
+orthographic(nii_T2, xyz = c(200, 220, 11))  
+mtext("NIfTI nii T2 Slice 11 Orthographic", side = 1, line = 1, adj = 1, cex = 1, col = "white")
+dev.off()
 ```
 ### NIfTI nii T2 Slice 11 Orthographic Overlay
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/702a98af6c51c1e48e7630f06a645b45a2dc1c18/R_Neurohacking_Results_Part_09/NIfTI_nii_T2_Slice_11_Orthographic_Overlay.png" width="400" />
 
 ```
-enter
+#define value between 300 and 400
+is_btw_300_400 <- (nii_T2 >= 300) & (nii_T2 <= 400)
+
+#mask
+nii_T2_mask <- nii_T2
+
+#set value range to NA
+nii_T2_mask[!is_btw_300_400] <- NA
+
+#extract the 3D data array
+mask_array <- nii_T2_mask[]
+
+#mask for slice 11
+mask_11_array <- array(NA, dim = dim(mask_array))
+mask_11_array[,,11] <- mask_array[,,11]
+
+#overlay for slice 11
+overlay(nii_T2, nii_T2_mask, z = 11, plot.type = "single")
+
+#overlay orthographic all planes of coronal, sagittal, and axial for slice 11
+orthographic(nii_T2, nii_T2_mask, xyz = c(200, 220, 11))  
+mtext("NIfTI nii T2 Slice 11 Orthographic Overlay", side = 1, line = 1, adj = 1, cex = 1, col = "white")
 ```
 ## 🖼️ Images Kirby21 <br>
 
