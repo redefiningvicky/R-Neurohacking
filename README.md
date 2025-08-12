@@ -403,9 +403,9 @@ orthographic(subtract.T1)
 <img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/355e40279b3d93a0ccb5c99be26608424ccf9467/R_Neurohacking_Results_Part_11/NIfTI_nii_T1_Log_Scale_Histogram.png" width="400" />
 
 ```
-T2_numeric <- as.numeric(T2_img)
+T1_numeric <- as.numeric(T1_img)
 
-x <- T2_numeric[is.finite(T2_numeric)]
+x <- T1_numeric[is.finite(T1_numeric)]
 
 print(length(x))
 print(head(x))
@@ -419,7 +419,7 @@ par(mar = c(5, 4, 4, 4) + 0.3)
 col1 <- rgb(0, 0, 1, 0.5)
 plot(im_hist$mids, counts_log, log = "y", type = "h", lwd = 10, lend = 2,
      col = col1, xlab = "Intensity Values", ylab = "Count (Log Scale)",
-     main = "NIfTI nii T2 Log-Scale Histogram")
+     main = "NIfTI nii T1 Log-Scale Histogram")
 
 dev.off()
 ```
@@ -430,7 +430,7 @@ dev.off()
 #create base plot
 plot(im_hist$mids, counts_log, log = "y", type = "h", lwd = 10, lend = 2,
      col = col1, xlab = "Intensity Values", ylab = "Count (Log Scale)",
-     main = "NIfTI nii T2 Log-Scale Histogram with Linear Transfer Function")
+     main = "NIfTI nii T1 Log-Scale Histogram with Linear Transfer Function")
 
 #scaling factor
 l <- 1
@@ -465,7 +465,7 @@ max_x <- max(x)
 #plot a base plot
 plot(im_hist$mids, counts_log, log = "y", type = "h", lwd = 10, lend = 2,
      col = rgb(0,0,1,0.5), xlab = "Intensity Values", ylab = "Count (Log Scale)",
-     main = "NIfTI nii T2 Log-Scale Histogram with Spline Transfer Function")
+     main = "NIfTI nii T1 Log-Scale Histogram with Spline Transfer Function")
 
 #overlay the spline transfer function curve
 curve(lin.sp(x, knots.vals * max_x, slp.vals),
@@ -479,7 +479,7 @@ axis(side = 4, at = ticks_norm, labels = ticks)
 mtext("Transformed Intensity", side = 4, line = 2)
 
 #apply spline transfer to numeric data x
-trans_T2 <- lin.sp(x, knots.vals * max_x, slp.vals)
+trans_T1 <- lin.sp(x, knots.vals * max_x, slp.vals)
 ```
 
 ### NIfTI nii T1 Slice 11 Original
@@ -490,12 +490,12 @@ trans_T2 <- lin.sp(x, knots.vals * max_x, slp.vals)
 
 ```
 #smooth image with Gaussian smoother (~1 minute)
-smooth.T2 <- GaussSmoothArray(T2_img@.Data, voxdim = c(1,1,1),
+smooth.T1 <- GaussSmoothArray(T1_img@.Data, voxdim = c(1,1,1),
                              ksize = 11, sigma = diag(3,3),
                              mask = NULL, var.norm = FALSE)
 
 #convert back to nifti object
-smooth_nifti <- nifti(smooth.T2)
+smooth_nifti <- nifti(smooth.T1)
 
 #visualize smoothed volume
 orthographic(smooth_nifti)
@@ -504,7 +504,7 @@ num_slices <- dim(T2_img@.Data)[3]
 
 for(slice_index in 1:num_slices) {
   #extract original slice from raw image
-  original_slice <- T2_img@.Data[, , slice_index]
+  original_slice <- T1_img@.Data[, , slice_index]
   
   #extract corresponding slice from smoothed data
   smoothed_slice <- smooth_nifti@.Data[, , slice_index]
@@ -518,11 +518,11 @@ for(slice_index in 1:num_slices) {
   start_idx <- (slice_index - 1) * slice_size + 1
   end_idx <- slice_index * slice_size
   #extract transformed slice and reshape to matrix
-  transformed_slice <- matrix(trans_T2[start_idx:end_idx],
+  transformed_slice <- matrix(trans_T1[start_idx:end_idx],
                               nrow = nrow(original_slice),
                               ncol = ncol(original_slice))
 ```
-### NIfTI nii T1 Log-Scale Histogram
+### NIfTI nii T2 Log-Scale Histogram
 <img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/355e40279b3d93a0ccb5c99be26608424ccf9467/R_Neurohacking_Results_Part_11/NIfTI_nii_T1_Log_Scale_Histogram.png" width="400" />
 
 ```
@@ -546,7 +546,7 @@ plot(im_hist$mids, counts_log, log = "y", type = "h", lwd = 10, lend = 2,
 
 dev.off()
 ```
-### NIfTI nii T1 Log-Scale Histogram with Linear Transfer Function
+### NIfTI nii T2 Log-Scale Histogram with Linear Transfer Function
 <img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/355e40279b3d93a0ccb5c99be26608424ccf9467/R_Neurohacking_Results_Part_11/NIfTI_nii_T1_Log_Scale_Histogram_Linear_Transfer_Function.png" width="400" />
 
 ```
@@ -574,7 +574,7 @@ mtext("Original Intensity", side = 4, line = 2)
 
 dev.off()
 ```
-### Log-Scale Histogram with Spline Transfer Function
+### NIfTI nii T2 Log-Scale Histogram with Spline Transfer Function
 <img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/355e40279b3d93a0ccb5c99be26608424ccf9467/R_Neurohacking_Results_Part_11/NIfTI_nii_T1_Log_Scale_Histogram_Spline_Transfer_Function.png" width="400" />
 
 ```
@@ -605,10 +605,10 @@ mtext("Transformed Intensity", side = 4, line = 2)
 trans_T2 <- lin.sp(x, knots.vals * max_x, slp.vals)
 ```
 
-### NIfTI nii T1 Slice 11 Original
+### NIfTI nii T1 Slice 12 Original
 <img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/355e40279b3d93a0ccb5c99be26608424ccf9467/R_Neurohacking_Results_Part_11/NIfTI_nii_T1_Slice_11_Original.png" width="400" />
 
-### NIfTI nii T1 Slice 11 Smoothed
+### NIfTI nii T1 Slice 12 Smoothed
 <img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/355e40279b3d93a0ccb5c99be26608424ccf9467/R_Neurohacking_Results_Part_11/NIfTI_nii_T1_Slice_11_Smoothed.png" width="400" />
 
 ```
@@ -632,7 +632,7 @@ for(slice_index in 1:num_slices) {
   #extract corresponding slice from smoothed data
   smoothed_slice <- smooth_nifti@.Data[, , slice_index]
 ```
-### NIfTI nii T1 Slice 11 Transformed
+### NIfTI nii T1 Slice 12 Transformed
 <img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/355e40279b3d93a0ccb5c99be26608424ccf9467/R_Neurohacking_Results_Part_11/NIfTI_nii_T1_Slice_11_Transformed.png" width="400" />
 
 ```
