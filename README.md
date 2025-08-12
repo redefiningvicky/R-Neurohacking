@@ -523,7 +523,7 @@ for(slice_index in 1:num_slices) {
                               ncol = ncol(original_slice))
 ```
 ### NIfTI nii T2 Log-Scale Histogram
-<img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/9a36451e89327cfd0ad3daa0e51584349552c16b/R_Neurohacking_Results_Part_12/NIfTI_nii_T2_Log_Scale_Histogram.png" width="600" />
+<img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/9a36451e89327cfd0ad3daa0e51584349552c16b/R_Neurohacking_Results_Part_12/NIfTI_nii_T2_Log_Scale_Histogram.png" width="500" />
 
 ```
 T2_numeric <- as.numeric(T2_img)
@@ -547,7 +547,7 @@ plot(im_hist$mids, counts_log, log = "y", type = "h", lwd = 10, lend = 2,
 dev.off()
 ```
 ### NIfTI nii T2 Log-Scale Histogram with Linear Transfer Function
-<img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/9a36451e89327cfd0ad3daa0e51584349552c16b/R_Neurohacking_Results_Part_12/NIfTI_nii_T2_Log_Scale_Histogram_Linear_Transfer_Function.png" width="600" />
+<img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/9a36451e89327cfd0ad3daa0e51584349552c16b/R_Neurohacking_Results_Part_12/NIfTI_nii_T2_Log_Scale_Histogram_Linear_Transfer_Function.png" width="500" />
 
 ```
 #create base plot
@@ -575,7 +575,7 @@ mtext("Original Intensity", side = 4, line = 2)
 dev.off()
 ```
 ### NIfTI nii T2 Log-Scale Histogram with Spline Transfer Function
-<img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/9a36451e89327cfd0ad3daa0e51584349552c16b/R_Neurohacking_Results_Part_12/NIfTI_nii_T2_Log_Scale_Histogram_Spline_Transfer_Function.png" width="600" />
+<img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/9a36451e89327cfd0ad3daa0e51584349552c16b/R_Neurohacking_Results_Part_12/NIfTI_nii_T2_Log_Scale_Histogram_Spline_Transfer_Function.png" width="500" />
 
 ```
 #correct variable names
