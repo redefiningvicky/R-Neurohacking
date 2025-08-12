@@ -44,7 +44,6 @@ image(1:d[1], 1:d[2], nii_T1[,,11],
   ylab= "",
   main = "DICOM T1 Slice 11 Grayscale")
 ```
-
 ### DICOM T2 Slice 11 Grayscale
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_03/DICOM_T2_Slice_11.png" width="400" />
 
@@ -55,7 +54,6 @@ image(1:d[1], 1:d[2], nii_T2[,,11],
   ylab= "",
   main = "DICOM T2 Slice 11 Grayscale")
 ```
-
 ### NIfTI nii T1 Slice 11 Grayscale
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_04/NIfTI_nii_T1_Slice_11_Grayscale.png" width="400" />
 
@@ -68,7 +66,6 @@ png("NIfTI_nii_T1_Slice_11_Grayscale.png", width = 800, height = 800)
 image(1:d[1], 1:d[2], nii_T1[,,11], xlab = "", ylab = "", col = gray(0:64/64), main = "NIfTI nii T1 Slice 11 Grayscale")
 dev.off()
 ```
-
 ### NIfTI nii T1 Slice 11 Heat
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_04/NIfTI_nii_T1_Slice_11_Heat.png" width="400" />
 
@@ -81,9 +78,9 @@ png("NIfTI_nii_T1_Slice_11_Heat.png", width = 800, height = 800)
 image(1:d[1], 1:d[2], nii_T1[,,11], xlab = "", ylab = "", col = heat.colors(12), main = "NIfTI nii T1 Slice 11 Heat")
 dev.off()
 ```
-
 ### NIfTI nii T1 Slice 11 Oro
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_04/NIfTI_nii_T1_Slice_11_Oro.png" width="400" />
+
 ```
 #read without reorientation
 nii_T1 <- readNIfTI(fname, reorient = FALSE)
@@ -93,7 +90,6 @@ png("NIfTI_nii_T1_Slice_11_Oro.png", width = 800, height = 800)
 image(nii_T1, z=11,plot.type="single")
 dev.off()
 ```
-
 ### NIfTI nii T1 Slice 11 Orthographic
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_04/NIfTI_nii_T1_Slice_11_Orthographic.png" width="400" />
 
