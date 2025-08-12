@@ -3,7 +3,7 @@
 This project uses the R programming language and its neuroimaging packages to manipulate, process, and analyze structural brain MRI data in the NIfTI (Neuroimaging Informatics Technology Initiative) format. It focuses on performing inhomogeneity correction, brain extraction, image registration, and visualization to enable comprehensive exploration of neuroimaging data. <p>
 ## 🛠️ Tools <br>
 • <b>Language:</b> R <p>
-## 🖼️ Images Brainix <br>
+## 🖼️ Images Brainix DICOM FLAIR <br>
 Of the MRI slices numbered 1 to 22, only slice 11 is shown here as representative examples. Sample R code snippets are also provided to demonstrate how to generate the images.
 ### DICOM FLAIR Slice 11 Grayscale
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/951f629a1bbc2550b4d2b12ea8a01228f2862280/R_Neurohacking_Results_Part_01/DICOM_FLAIR_Slice_11_Grayscale.png" width="400" />
@@ -56,6 +56,7 @@ image(1:d[1], 1:d[2], nii_T2[,,11],
   ylab= "",
   main = "DICOM T2 Slice 11 Grayscale")
 ```
+## 🖼️ Images Brainix NIfTI nii <br>
 ### NIfTI nii T1 Slice 11 Grayscale
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_04/NIfTI_nii_T1_Slice_11_Grayscale.png" width="400" />
 
@@ -397,3 +398,4 @@ max(subtract.T1)
 #view the binary mask difference
 orthographic(subtract.T1)
 ```
+## 🖼️ Images Brainix NIfTI nii <br>
