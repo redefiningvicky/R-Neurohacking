@@ -48,67 +48,168 @@ image(1:d[1], 1:d[2], nii_T1[,,11],
 ### DICOM T2 Slice 11 Grayscale
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_03/DICOM_T2_Slice_11.png" width="400" />
 
+```
+image(1:d[1], 1:d[2], nii_T2[,,11],
+  col = gray(0:64/64),
+  xlab = "",
+  ylab= "",
+  main = "DICOM T2 Slice 11 Grayscale")
+```
+
 ### NIfTI nii T1 Slice 11 Grayscale
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_04/NIfTI_nii_T1_Slice_11_Grayscale.png" width="400" />
+
+```
+#read without reorientation
+nii_T1 <- readNIfTI(fname, reorient = FALSE)
+
+#slice using custom x and y axes, grayscale, for slice 11
+png("NIfTI_nii_T1_Slice_11_Grayscale.png", width = 800, height = 800)
+image(1:d[1], 1:d[2], nii_T1[,,11], xlab = "", ylab = "", col = gray(0:64/64), main = "NIfTI nii T1 Slice 11 Grayscale")
+dev.off()
+```
 
 ### NIfTI nii T1 Slice 11 Heat
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_04/NIfTI_nii_T1_Slice_11_Heat.png" width="400" />
 
+```
+#read without reorientation
+nii_T1 <- readNIfTI(fname, reorient = FALSE)
+
+#slice using custom x and y axes, default colors of heat color orange, for slice 11
+png("NIfTI_nii_T1_Slice_11_Heat.png", width = 800, height = 800)
+image(1:d[1], 1:d[2], nii_T1[,,11], xlab = "", ylab = "", col = heat.colors(12), main = "NIfTI nii T1 Slice 11 Heat")
+dev.off()
+```
+
 ### NIfTI nii T1 Slice 11 Oro
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_04/NIfTI_nii_T1_Slice_11_Oro.png" width="400" />
+```
+#read without reorientation
+nii_T1 <- readNIfTI(fname, reorient = FALSE)
+
+#slice using oro.nifti package for slice 11
+png("NIfTI_nii_T1_Slice_11_Oro.png", width = 800, height = 800)
+image(nii_T1, z=11,plot.type="single")
+dev.off()
+```
 
 ### NIfTI nii T1 Slice 11 Orthographic
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_04/NIfTI_nii_T1_Slice_11_Orthographic.png" width="400" />
+```
+
+
+
+```
 
 ### NIfTI nii T1 Slice 11 Histogram
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_04/NIfTI_T1_Slice_11_Histogram.png" width="600" />
 
+```
+```
+
+
 ### NIfTI nii T2 Slice 11 Grayscale
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_05/NIfTI_nii_T2_Slice_11_Grayscale.png" width="400" />
+
+```
+```
+
 
 ### NIfTI nii T2 Slice 11 Heat
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_05/NIfTI_nii_T2_Slice_11_Heat.png" width="400" />
 
+```
+```
+
 ### NIfTI nii T2 Slice 11 Oro
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_05/NIfTI_nii_T2_Slice_11_Oro.png" width="400" />
+
+```
+```
 
 ### NIfTI nii T2 Slice 11 Orthographic
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_05/NIfTI_nii_T2_Slice_11_Orthographic.png" width="400" />
 
+```
+```
+
+
 ### NIfTI nii T2 Slice 11 Histogram
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_05/NIfTI_T2_Slice_11_Histogram.png" width="600" />
+
+```
+```
+
 
 ### NIfTI nii T1 Slice 11 Oro Overlay
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_06/NIfTI_nii_T1_Slice_11_Oro_Overlay.png" width="400" />
 
+```
+```
+
+
 ### NIfTI nii T1 Slices 01-22 Oro Overlay Grid
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_06/NIfTI_nii_T1_Slices_01_22_Oro_Overlay_Grid.png" width="400" />
-
+```
+```
 ### NIfTI nii T2 Slice 11 Oro Overlay
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_07/NIfTI_nii_T2_Slice_11_Oro_Overlay.png" width="400" />
-
+```
+```
 ### NIfTI nii T2 Slices 01-22 Oro Overlay Grid
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_07/NIfTI_nii_T2_Slices_01_22_Oro_Overlay_Grid.png" width="400" />
-
+```
+```
 ### NIfTI nii T1 Slice 11 Orthographic
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_08/NIfTI_nii_T1_Slice_11_Orthographic.png" width="400" />
-
+```
+```
 ### NIfTI nii T1 Slice 11 Orthographic Overlay
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/702a98af6c51c1e48e7630f06a645b45a2dc1c18/R_Neurohacking_Results_Part_08/NIfTI_nii_T1_Slice_11_Orthographic_Overlay.png" width="400" />
-
+```
+```
 ### NIfTI nii T2 Slice 11 Orthographic
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_09/NIfTI_nii_T2_Slice_11_Orthographic.png" width="400" />
-
+```
+```
 ### NIfTI nii T2 Slice 11 Orthographic Overlay
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/702a98af6c51c1e48e7630f06a645b45a2dc1c18/R_Neurohacking_Results_Part_09/NIfTI_nii_T2_Slice_11_Orthographic_Overlay.png" width="400" />
+
+```
+```
+
 
 ## 🖼️ Images Kirby21 <br>
 
 ### Kirby21 T1 Orthographic Original
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/702a98af6c51c1e48e7630f06a645b45a2dc1c18/R_Neurohacking_Results_Part_10/Kirby21_T1_Orthographic_Original.png" width="400" />
 
+```
+orthographic(T1)
+```
 ### Kirby21 T1 Orthographic Masked
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/702a98af6c51c1e48e7630f06a645b45a2dc1c18/R_Neurohacking_Results_Part_10/Kirby21_T1_Orthographic_Masked.png" width="400" />
 
+```
+#view the binary mask
+orthographic(mask)
+
+#apply the mask to the original image
+masked.T1 <- T1 * mask
+orthographic(masked.T1)
+```
 ### Kirby21 T1 Orthographic Subtract
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/702a98af6c51c1e48e7630f06a645b45a2dc1c18/R_Neurohacking_Results_Part_10/Kirby21_T1_Orthographic_Subtract.png" width="400" />
+
+```
+#subtract baseline
+subtract.T1 <- T1.follow - T1
+
+#calculate the min and max
+min(subtract.T1)
+max(subtract.T1)
+
+#view the binary mask difference
+orthographic(subtract.T1)
+```
