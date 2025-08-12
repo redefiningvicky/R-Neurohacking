@@ -227,7 +227,7 @@ dev.off()
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_06/NIfTI_nii_T1_Slices_01_22_Oro_Overlay_Grid.png" width="400" />
 
 ```
-#slices 1-22
+#slices 01-22
 arr_all <- array(NA, dim = dim(as.array(nii_T1_mask)))
 arr_all[,,1:22] <- as.array(nii_T1_mask)[,,1:22]
 
@@ -271,7 +271,7 @@ dev.off()
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_07/NIfTI_nii_T2_Slices_01_22_Oro_Overlay_Grid.png" width="400" />
 
 ```
-#slices 1-22
+#slices 01-22
 arr_all <- array(NA, dim = dim(as.array(nii_T2_mask)))
 arr_all[,,1:22] <- as.array(nii_T2_mask)[,,1:22]
 
