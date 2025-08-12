@@ -6,6 +6,7 @@ This project uses the R programming language and its neuroimaging packages to ma
 ## 🖼️ Images Brainix <br>
 Of MRI Slices 1-22, only slice 11 is shown here as an example for the project.
 ### DICOM FLAIR Slice 11 Grayscale
+<img src="https://github.com/redefiningvicky/R-Neurohacking/blob/951f629a1bbc2550b4d2b12ea8a01228f2862280/R_Neurohacking_Results_Part_01/DICOM_FLAIR_Slice_11_Grayscale.png" width="300" />
 ![me](https://github.com/redefiningvicky/R-Neurohacking/blob/951f629a1bbc2550b4d2b12ea8a01228f2862280/R_Neurohacking_Results_Part_01/DICOM_FLAIR_Slice_11_Grayscale.png)
 ### DICOM FLAIR Slice 11 Histogram
 ![me](https://github.com/redefiningvicky/R-Neurohacking/blob/951f629a1bbc2550b4d2b12ea8a01228f2862280/R_Neurohacking_Results_Part_01/DICOM_FLAIR_Slice_11_Histogram.png)
