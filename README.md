@@ -37,6 +37,14 @@ hist(slice11$img[[1]][,],
 ### DICOM T1 Slice 11 Grayscale
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_02/DICOM_T1_Slice_11.png" width="400" />
 
+```
+image(1:d[1], 1:d[2], nii_T1[,,11],
+  col = gray(0:64/64),
+  xlab = "",
+  ylab= "",
+  main = "DICOM T1 Slice 11 Grayscale")
+```
+
 ### DICOM T2 Slice 11 Grayscale
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_03/DICOM_T2_Slice_11.png" width="400" />
 
