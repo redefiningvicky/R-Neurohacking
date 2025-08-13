@@ -82,15 +82,16 @@ image(1:d[1], 1:d[2], nii_T1[,,11], xlab = "", ylab = "", col = heat.colors(12),
 dev.off()
 ```
 ### NIfTI nii T1 Slice 11 Oro
-<img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_04/NIfTI_nii_T1_Slice_11_Oro.png" width="400" />
+<img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/ebc9c57058dc2f2594e10c9fcb240ed5bed7ede6/R_Neurohacking_Results_Part_04/NIfTI_nii_T1_Slice_11_Oro.png" width="400" />
 
 ```
 #read without reorientation
 nii_T1 <- readNIfTI(fname, reorient = FALSE)
 
-#slice using oro.nifti package for slice 11
-png("NIfTI_nii_T1_Slice_11_Oro.png", width = 800, height = 800)
-image(nii_T1, z=11,plot.type="single")
+#slice using oro.nifti package for slice 4
+png("NIfTI_nii_T1_Slice_04_Oro.png", width = 800, height = 800)
+image(nii_T1, z=4,plot.type="single")
+mtext("NIfTI nii T1 Slice 04 Oro", side = 1, line = 1, adj = 1, cex = 1, col = "white")
 dev.off()
 ```
 ### NIfTI nii T1 Slice 11 Orthographic
@@ -150,7 +151,7 @@ image(1:d[1], 1:d[2], nii_T2[,,11], xlab = "", ylab = "", col = heat.colors(12),
 dev.off()
 ```
 ### NIfTI nii T2 Slice 11 Oro
-<img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_05/NIfTI_nii_T2_Slice_11_Oro.png" width="400" />
+<img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/ebc9c57058dc2f2594e10c9fcb240ed5bed7ede6/R_Neurohacking_Results_Part_05/NIfTI_nii_T2_Slice_11_Oro.png" width="400" />
 
 ```
 #read without reorientation
@@ -159,6 +160,7 @@ nii_T2 <- readNIfTI(fname, reorient = FALSE)
 #slice using oro.nifti package for slice 11
 png("NIfTI_nii_T2_Slice_11_Oro.png", width = 800, height = 800)
 image(nii_T2, z=11,plot.type="single")
+mtext("NIfTI nii T2 Slice 11 Oro", side = 1, line = 1, adj = 1, cex = 1, col = "white")
 dev.off()
 ```
 ### NIfTI nii T2 Slice 11 Orthographic
@@ -486,7 +488,7 @@ trans_T1 <- lin.sp(x, knots.vals * max_x, slp.vals)
 <img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/355e40279b3d93a0ccb5c99be26608424ccf9467/R_Neurohacking_Results_Part_11/NIfTI_nii_T1_Slice_11_Original.png" width="400" />
 
 ### NIfTI nii T1 Slice 11 Smoothed
-<img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/355e40279b3d93a0ccb5c99be26608424ccf9467/R_Neurohacking_Results_Part_11/NIfTI_nii_T1_Slice_11_Smoothed.png" width="400" />
+<img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/ebc9c57058dc2f2594e10c9fcb240ed5bed7ede6/R_Neurohacking_Results_Part_11/NIfTI_nii_T1_Slice_11_Smoothed.png" width="400" />
 
 ```
 #smooth image with Gaussian smoother (~1 minute)
@@ -510,7 +512,7 @@ for(slice_index in 1:num_slices) {
   smoothed_slice <- smooth_nifti@.Data[, , slice_index]
 ```
 ### NIfTI nii T1 Slice 11 Transformed
-<img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/355e40279b3d93a0ccb5c99be26608424ccf9467/R_Neurohacking_Results_Part_11/NIfTI_nii_T1_Slice_11_Transformed.png" width="400" />
+<img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/ebc9c57058dc2f2594e10c9fcb240ed5bed7ede6/R_Neurohacking_Results_Part_11/NIfTI_nii_T1_Slice_11_Transformed.png" width="400" />
 
 ```
 #calculate start and end indices for transformed slice vector
@@ -644,3 +646,30 @@ for(slice_index in 1:num_slices) {
   transformed_slice <- matrix(trans_T2[start_idx:end_idx],
                               nrow = nrow(original_slice),
                               ncol = ncol(original_slice))
+```
+### NIfTI nii Slice 11 FLAIR
+<img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/ebc9c57058dc2f2594e10c9fcb240ed5bed7ede6/R_Neurohacking_Results_Part_13/NIfTI_nii_Slice_11_FLAIR.png" width="400" />
+
+```
+mridir <- "C:/Users/redef/OneDrive/Desktop/R_Neurohacking/R_Neurohacking_Data/BRAINIX/NIfTI"
+sequence <- "FLAIR"
+
+volume.f <- readNIfTI(file.path(mridir, paste0(sequence, '.nii.gz')), reorient = FALSE)
+volume.f <- cal_img(volume.f)
+```
+### NIfTI nii Slice 11 T1 Weighted
+<img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/ebc9c57058dc2f2594e10c9fcb240ed5bed7ede6/R_Neurohacking_Results_Part_13/NIfTI_nii_Slice_11_T1_Weighted.png" width="400" />
+
+```
+sequence <- "T1"
+volume.t1 <- readNIfTI(file.path(mridir, paste0(sequence, '.nii.gz')), reorient = FALSE)
+volume.t1 <- cal_img(volume.t1)
+```
+### NIfTI nii Slice 11 T2 Weighted
+<img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/ebc9c57058dc2f2594e10c9fcb240ed5bed7ede6/R_Neurohacking_Results_Part_13/NIfTI_nii_Slice_11_T2_Weighted.png" width="400" />
+
+```
+sequence <- "T2"
+volume.t2 <- readNIfTI(file.path(mridir, paste0(sequence, '.nii.gz')), reorient = FALSE)
+volume.t2 <- cal_img(volume.t2)
+```
