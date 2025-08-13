@@ -56,7 +56,6 @@ image(1:d[1], 1:d[2], nii_T2[,,11],
   ylab= "",
   main = "DICOM T2 Slice 11 Grayscale")
 ```
-## 🖼️ Images <br>
 ### NIfTI nii T1 Slice 11 Grayscale
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_04/NIfTI_nii_T1_Slice_11_Grayscale.png" width="400" />
 
