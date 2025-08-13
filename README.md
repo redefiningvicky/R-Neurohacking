@@ -658,6 +658,12 @@ volume.f <- cal_img(volume.f)
 <img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/ebc9c57058dc2f2594e10c9fcb240ed5bed7ede6/R_Neurohacking_Results_Part_13/NIfTI_nii_Slice_11_T1_Weighted.png" width="400" />
 
 ```
+#load T1
+sequence <- "T1"
+volume.t1 <- readNIfTI(file.path(mridir, paste0(sequence, '.nii.gz')), reorient = FALSE)
+volume.t1 <- cal_img(volume.t1)
+
+#T1-Weighted (T1)
 sequence <- "T1"
 volume.t1 <- readNIfTI(file.path(mridir, paste0(sequence, '.nii.gz')), reorient = FALSE)
 volume.t1 <- cal_img(volume.t1)
@@ -666,6 +672,12 @@ volume.t1 <- cal_img(volume.t1)
 <img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/ebc9c57058dc2f2594e10c9fcb240ed5bed7ede6/R_Neurohacking_Results_Part_13/NIfTI_nii_Slice_11_T2_Weighted.png" width="400" />
 
 ```
+#load T2
+sequence <- "T2"
+volume.t2 <- readNIfTI(file.path(mridir, paste0(sequence, '.nii.gz')), reorient = FALSE)
+volume.t2 <- cal_img(volume.t2)
+
+#T2-Weighted (T2)
 sequence <- "T2"
 volume.t2 <- readNIfTI(file.path(mridir, paste0(sequence, '.nii.gz')), reorient = FALSE)
 volume.t2 <- cal_img(volume.t2)
