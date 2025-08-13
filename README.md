@@ -56,7 +56,7 @@ image(1:d[1], 1:d[2], nii_T2[,,11],
   ylab= "",
   main = "DICOM T2 Slice 11 Grayscale")
 ```
-## 🖼️ Images Brainix NIfTI nii <br>
+## 🖼️ Images <br>
 ### NIfTI nii T1 Slice 11 Grayscale
 <img src="https://github.com/redefiningvicky/R-Neurohacking/blob/86908aca3a9cbb611c04c1fc4e4c7191795ae103/R_Neurohacking_Results_Part_04/NIfTI_nii_T1_Slice_11_Grayscale.png" width="400" />
 
@@ -400,7 +400,6 @@ max(subtract.T1)
 #view the binary mask difference
 orthographic(subtract.T1)
 ```
-## 🖼️ Images Brainix NIfTI nii <br>
 ### NIfTI nii T1 Log-Scale Histogram
 <img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/355e40279b3d93a0ccb5c99be26608424ccf9467/R_Neurohacking_Results_Part_11/NIfTI_nii_T1_Log_Scale_Histogram.png" width="500" />
 
