@@ -425,6 +425,8 @@ col1 <- rgb(0, 0, 1, 0.5)
 plot(im_hist$mids, counts_log, log = "y", type = "h", lwd = 10, lend = 2,
      col = col1, xlab = "Intensity Values", ylab = "Count (Log Scale)",
      main = "NIfTI nii T1 Log-Scale Histogram")
+
+dev.off()
 ```
 ### NIfTI nii T1 Log-Scale Histogram with Linear Transfer Function
 <img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/355e40279b3d93a0ccb5c99be26608424ccf9467/R_Neurohacking_Results_Part_11/NIfTI_nii_T1_Log_Scale_Histogram_Linear_Transfer_Function.png" width="500" />
@@ -451,6 +453,8 @@ axis(side = 4, at = ticks_norm, labels = ticks)
 
 #add label for right axis
 mtext("Original Intensity", side = 4, line = 2)
+
+dev.off()
 ```
 ### Log-Scale Histogram with Spline Transfer Function
 <img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/355e40279b3d93a0ccb5c99be26608424ccf9467/R_Neurohacking_Results_Part_11/NIfTI_nii_T1_Log_Scale_Histogram_Spline_Transfer_Function.png" width="500" />
@@ -546,6 +550,8 @@ col1 <- rgb(0, 0, 1, 0.5)
 plot(im_hist$mids, counts_log, log = "y", type = "h", lwd = 10, lend = 2,
      col = col1, xlab = "Intensity Values", ylab = "Count (Log Scale)",
      main = "NIfTI nii T2 Log-Scale Histogram")
+
+dev.off()
 ```
 ### NIfTI nii T2 Log-Scale Histogram with Linear Transfer Function
 <img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/9a36451e89327cfd0ad3daa0e51584349552c16b/R_Neurohacking_Results_Part_12/NIfTI_nii_T2_Log_Scale_Histogram_Linear_Transfer_Function.png" width="500" />
@@ -597,6 +603,8 @@ mtext("Transformed Intensity", side = 4, line = 2)
 
 #apply spline transfer to numeric data x
 trans_T2 <- lin.sp(x, knots.vals * max_x, slp.vals)
+
+dev.off()
 ```
 
 ### NIfTI nii T2 Slice 12 Original
