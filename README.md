@@ -577,6 +577,8 @@ axis(side = 4, at = ticks_norm, labels = ticks)
 
 #add label for right axis
 mtext("Original Intensity", side = 4, line = 2)
+
+dev.off()
 ```
 ### NIfTI nii T2 Log-Scale Histogram with Spline Transfer Function
 <img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/9a36451e89327cfd0ad3daa0e51584349552c16b/R_Neurohacking_Results_Part_12/NIfTI_nii_T2_Log_Scale_Histogram_Spline_Transfer_Function.png" width="500" />
@@ -603,8 +605,6 @@ mtext("Transformed Intensity", side = 4, line = 2)
 
 #apply spline transfer to numeric data x
 trans_T2 <- lin.sp(x, knots.vals * max_x, slp.vals)
-
-dev.off()
 ```
 
 ### NIfTI nii T2 Slice 12 Original
