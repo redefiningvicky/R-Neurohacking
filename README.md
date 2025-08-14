@@ -565,7 +565,6 @@ curve(x * l, from = min(im_hist$mids), to = max(im_hist$mids),
 ticks <- pretty(im_hist$mids)
 max_val <- max(x)
 ticks_norm <- ticks / max_val
-
 axis(side = 4, at = ticks_norm, labels = ticks)
 
 #add label for right axis
