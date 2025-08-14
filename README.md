@@ -402,18 +402,24 @@ orthographic(subtract.T1)
 <img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/355e40279b3d93a0ccb5c99be26608424ccf9467/R_Neurohacking_Results_Part_11/NIfTI_nii_T1_Log_Scale_Histogram.png" width="500" />
 
 ```
+#convert to numeric values
 T1_numeric <- as.numeric(T1_img)
 
+#key finite values
 x <- T1_numeric[is.finite(T1_numeric)]
 
+#show number of valid voxels and first few values
 print(length(x))
 print(head(x))
 
+#if no variation (all values same), jitter to avoid histogram issues
 if (length(unique(x)) < 2) x <- jitter(x)
 
+#compute histogram and replace zero counts with NA for log scaling
 im_hist <- hist(x, breaks = 20, plot = FALSE)
 counts_log <- ifelse(im_hist$counts > 0, im_hist$counts, NA)
 
+#plot a base plot on a log scale 
 par(mar = c(5, 4, 4, 4) + 0.3)
 col1 <- rgb(0, 0, 1, 0.5)
 plot(im_hist$mids, counts_log, log = "y", type = "h", lwd = 10, lend = 2,
@@ -426,7 +432,7 @@ dev.off()
 <img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/355e40279b3d93a0ccb5c99be26608424ccf9467/R_Neurohacking_Results_Part_11/NIfTI_nii_T1_Log_Scale_Histogram_Linear_Transfer_Function.png" width="500" />
 
 ```
-#create base plot
+#plot a base plot
 plot(im_hist$mids, counts_log, log = "y", type = "h", lwd = 10, lend = 2,
      col = col1, xlab = "Intensity Values", ylab = "Count (Log Scale)",
      main = "NIfTI nii T1 Log-Scale Histogram with Linear Transfer Function")
@@ -525,18 +531,24 @@ for(slice_index in 1:num_slices) {
 <img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/9a36451e89327cfd0ad3daa0e51584349552c16b/R_Neurohacking_Results_Part_12/NIfTI_nii_T2_Log_Scale_Histogram.png" width="500" />
 
 ```
+#convert to numeric values
 T2_numeric <- as.numeric(T2_img)
 
+#key finite values
 x <- T2_numeric[is.finite(T2_numeric)]
 
+#show number of valid voxels and first few values
 print(length(x))
 print(head(x))
 
+#if no variation (all values same), jitter to avoid histogram issues
 if (length(unique(x)) < 2) x <- jitter(x)
 
+#compute histogram and replace zero counts with NA for log scaling
 im_hist <- hist(x, breaks = 20, plot = FALSE)
 counts_log <- ifelse(im_hist$counts > 0, im_hist$counts, NA)
 
+#plot a base plot on a log scale 
 par(mar = c(5, 4, 4, 4) + 0.3)
 col1 <- rgb(0, 0, 1, 0.5)
 plot(im_hist$mids, counts_log, log = "y", type = "h", lwd = 10, lend = 2,
@@ -549,7 +561,7 @@ dev.off()
 <img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/9a36451e89327cfd0ad3daa0e51584349552c16b/R_Neurohacking_Results_Part_12/NIfTI_nii_T2_Log_Scale_Histogram_Linear_Transfer_Function.png" width="500" />
 
 ```
-#create base plot
+#plot a base plot
 plot(im_hist$mids, counts_log, log = "y", type = "h", lwd = 10, lend = 2,
      col = col1, xlab = "Intensity Values", ylab = "Count (Log Scale)",
      main = "NIfTI nii T2 Log-Scale Histogram with Linear Transfer Function")
@@ -647,9 +659,11 @@ for(slice_index in 1:num_slices) {
 <img src="https://github.com/redefiningvicky/R-Neurohacking-Part-1/blob/ebc9c57058dc2f2594e10c9fcb240ed5bed7ede6/R_Neurohacking_Results_Part_13/NIfTI_nii_Slice_11_FLAIR.png" width="400" />
 
 ```
+#load FLAIR
 mridir <- "C:/Users/redef/OneDrive/Desktop/R_Neurohacking/R_Neurohacking_Data/BRAINIX/NIfTI"
 sequence <- "FLAIR"
 
+#FLAIR
 volume.f <- readNIfTI(file.path(mridir, paste0(sequence, '.nii.gz')), reorient = FALSE)
 volume.f <- cal_img(volume.f)
 ```
