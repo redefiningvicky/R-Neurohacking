@@ -687,3 +687,109 @@ sequence <- "T2"
 volume.t2 <- readNIfTI(file.path(mridir, paste0(sequence, '.nii.gz')), reorient = FALSE)
 volume.t2 <- cal_img(volume.t2)
 ```
+
+
+
+
+
+### 01 MPRAGE Mean
+<img src="" width="300" />
+
+```
+#compute mean
+mean_val_113_01_MPRAGE <- mean(nim_113_01_MPRAGE)
+mean_text_113_01_MPRAGE <- paste0("113-01-MPRAGE.nii.gz Mean: ", round(mean_val_113_01_MPRAGE, 2))
+```
+
+### 02 MPRAGE Mean
+<img src="" width="300" />
+
+```
+#compute mean
+mean_val_113_02_MPRAGE <- mean(nim_113_02_MPRAGE)
+mean_text_113_02_MPRAGE <- paste0("113-02-MPRAGE.nii.gz Mean: ", round(mean_val_113_02_MPRAGE, 2))
+```
+### 01 MPRAGE Difference
+<img src="" width="400" />
+
+```
+#diverging color palettes
+fcol1 <- div_gradient_pal(low="blue", mid="yellow", high="red")
+fcol2 <- div_gradient_pal(low="blue", mid="yellow", high="red")
+
+#113-01-MPRAGE difference image
+sub_bias_113_01_MPRAGE <- nim_113_01_MPRAGE - fast_img_113_01_MPRAGE
+q1 <- quantile(sub_bias_113_01_MPRAGE[sub_bias_113_01_MPRAGE != 0], probs = seq(0,1,by=0.1))
+```
+### 02 MPRAGE Difference
+<img src="" width="400" />
+
+```
+#diverging color palettes
+fcol1 <- div_gradient_pal(low="blue", mid="yellow", high="red")
+fcol2 <- div_gradient_pal(low="blue", mid="yellow", high="red")
+
+#113-02-MPRAGE difference image
+sub_bias_113_02_MPRAGE <- nim_113_02_MPRAGE - fast_img_113_02_MPRAGE
+q2 <- quantile(sub_bias_113_02_MPRAGE[sub_bias_113_02_MPRAGE != 0], probs = seq(0,1,by=0.1))
+```
+### 01 MPRAGE Histogram
+<img src="" width="750" />
+
+```
+#slices to plot
+slices_01_22 <- 1:22
+
+#113-01-MPRAGE histogram slices 01-22
+vals_113_01_MPRAGE <- lapply(slices_01_22, function(x) {
+  data.frame(
+    Original = c(nim_113_01_MPRAGE[,,x]),
+    BiasCorrected = c(fast_img_113_01_MPRAGE[,,x]),
+    slice = x
+  )
+})
+vals_113_01_MPRAGE <- do.call(rbind, vals_113_01_MPRAGE)
+v_113_01_MPRAGE <- melt(vals_113_01_MPRAGE, id.vars="slice", variable.name="ImageType", value.name="Value")
+```
+### 02 MPRAGE Histogram
+<img src="" width="750" />
+
+```
+#slices to plot
+slices_01_22 <- 1:22
+
+#113-02-MPRAGE histogram slices 01-22
+vals_113_02_MPRAGE <- lapply(slices_01_22, function(x) {
+  data.frame(
+    Original = c(nim_113_02_MPRAGE[,,x]),
+    BiasCorrected = c(fast_img_113_02_MPRAGE[,,x]),
+    slice = x
+  )
+})
+vals_113_02_MPRAGE <- do.call(rbind, vals_113_02_MPRAGE)
+v_113_02_MPRAGE <- melt(vals_113_02_MPRAGE, id.vars="slice", variable.name="ImageType", value.name="Value")
+```
+### 01 MPRAGE Original
+<img src="" width="400" />
+
+```
+
+```
+### 01 MPRAGE BET Overlay
+<img src="" width="400" />
+
+```
+
+```
+### 02 MPRAGE Original
+<img src="" width="400" />
+
+```
+
+```
+### 02 MPRAGE BET Overlay
+<img src="" width="400" />
+
+```
+
+```
