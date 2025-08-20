@@ -87,10 +87,10 @@ dev.off()
 #read without reorientation
 nii_T1 <- readNIfTI(fname, reorient = FALSE)
 
-#slice using oro.nifti package for slice 4
-png("NIfTI_nii_T1_Slice_04_Oro.png", width = 800, height = 800)
-image(nii_T1, z=4,plot.type="single")
-mtext("NIfTI nii T1 Slice 04 Oro", side = 1, line = 1, adj = 1, cex = 1, col = "white")
+#slice using oro.nifti package for slice 11
+png("NIfTI_nii_T1_Slice_11_Oro.png", width = 800, height = 800)
+image(nii_T1, z=11,plot.type="single")
+mtext("NIfTI nii T1 Slice 11 Oro", side = 1, line = 1, adj = 1, cex = 1, col = "white")
 dev.off()
 ```
 ### NIfTI nii T1 Slice 11 Orthographic
